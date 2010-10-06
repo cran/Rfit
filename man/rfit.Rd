@@ -1,0 +1,80 @@
+\name{rfit}
+\alias{rfit}
+\alias{rfit.default}
+%- Also NEED an '\alias' for EACH other topic documented here.
+\title{ Rank-based Estimates of Regression Coefficients }
+\description{
+Minimizes Jaeckel's dispersion function to obtain a rank-based solution for linear models.
+}
+\usage{
+rfit(formula, data = list(), ...)
+%rfit.formula(formula, data = list(), ...)
+\method{rfit}{default}(formula, data=list(), yhat0 = suppressWarnings(rq(y ~ x)$fitted.values), scores = wscores, symmetric = FALSE, ...)
+
+}
+%- maybe also 'usage' for other objects documented here.
+\arguments{
+  \item{formula}{an object of class formula }
+  \item{data}{ an optional data frame}
+  \item{yhat0}{ an n by vector of initial fitted values }
+%  \item{x}{ an n by p design matrix }
+%  \item{y}{ an n by 1 response vector }
+%  \item{beta0}{ an initial estimate of the  }
+  \item{scores}{ an object of class 'scores'}
+  \item{symmetric}{ logical.  If 'FALSE' uses median of residuals as estimate of intercept} 
+  \item{\dots}{ additional arguments to be passed to fitting routines }
+
+}
+\details{
+Rank-based estimation involves replacing the L2 norm of least squares estimation with a pseudo-norm which is a function of the ranks of the residuals.
+That is, in rank estimation, the usual notion of Euclidean distance is replaced with another measure of distance which is referred to as Jaeckel's (1972) dispersion function.
+Jaeckel's dispersion function depends on a score function and a library of commonly used score functions is included.  e.g. Wilcoxon and sign score functions.
+
+}
+\value{
+\item{coefficients}{estimated regression coefficents with intercept}
+\item{residuals}{the residuals, i.e. y-yhat}
+\item{fitted.values}{ yhat = x betahat}
+%\item{scores}{ score function used in estimation}
+%\item{x}{original design matrix}
+%\item{y}{original response vector}
+\item{xc}{centered design matrix}
+\item{tauhat}{estimated value of the scale parameter tau}
+\item{taushat}{estimated value of the scale parameter tau_s}
+%\item{symmetric}{
+\item{betahat}{estimated regression coefficents}
+\item{call}{Call to the function}
+}
+\references{
+Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust nonparametric statistical methods}, London: Arnold.
+
+Jaeckel, L. A. (1972). Estimating regression coefficients by minimizing the dispersion of residuals. \emph{Annals of Mathematical Statistics}, 43, 1449 - 1458.
+
+Jureckova, J. (1971). Nonparametric estimate of regression coefficients. \emph{Annals of Mathematical Statistics}, 42, 1328 - 1338.
+
+
+}
+\author{ John Kloke \email{jdk61@pitt.edu}}
+%\note{ ~~further notes~~ 
+%
+% ~Make other sections like Warning with \section{Warning }{....} ~
+%}
+%\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
+\seealso{
+%~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{summary.rfit}}
+}
+
+\examples{
+data(baseball)
+data(wscores)
+fit<-rfit(weight~height,data=baseball)
+summary(fit)
+}
+
+% Add one or more standard keywords, see file 'KEYWORDS' in the
+% R documentation directory.
+\keyword{nonparametric}
+\keyword{robust}
+\keyword{regression}
+
