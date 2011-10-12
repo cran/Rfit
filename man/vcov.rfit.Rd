@@ -6,7 +6,7 @@
 Returns the variance-covariance matrix of the regression estimates from an object of type rfit.
 }
 \usage{
-\method{vcov}{rfit}(object, intercept = TRUE,...)
+\method{vcov}{rfit}(object, intercept = NULL,...)
 }
 \arguments{
   \item{object}{ an object of type rfit }
@@ -25,10 +25,10 @@ Returns the variance-covariance matrix of the regression estimates from an objec
   %...
 %}
 \references{
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust Nonparametric Statistical Methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
 
-\author{ John Kloke \email{jdk61@pitt.edu}}
+\author{ John Kloke \email{kloke@biostat.wisc.edu}}
 
 \seealso{\code{\link{rfit}}}
 

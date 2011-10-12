@@ -22,13 +22,13 @@ grad(x, y, beta, scores)
 The gradiant evaluated at beta.
 }
 \references{
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust nonparametric statistical methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 
 Jaeckel, L. A. (1972). Estimating regression coefficients by minimizing the dispersion of residuals. \emph{Annals of Mathematical Statistics}, 43, 1449 - 1458.
 
 Jureckova, J. (1971). Nonparametric estimate of regression coefficients. \emph{Annals of Mathematical Statistics}, 42, 1328 - 1338.
 }
-\author{ John Kloke \email{jdk61@pitt.edu}}
+\author{ John Kloke \email{kloke@biostat.wisc.edu}}
 
 %\note{
 %%  ~~further notes~~

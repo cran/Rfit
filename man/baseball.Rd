@@ -21,7 +21,7 @@ These data come from the back-side of 59 baseball cards that Carrie had.
   %~~ If necessary, more details than the __description__ above ~~
 %}
 \source{
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust Nonparametric Statistical Methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
 %\references{
 %}

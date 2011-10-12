@@ -21,7 +21,7 @@ The number of telephone calls (in tens of millions) made in Belgium from 1950-19
 Rousseeuw, P.J. and Leroy, A.M. (1987), \emph{Robust Regression and Outlier Detection}, New York: Wiley.
 }
 \references{
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust Nonparametric Statistical Methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
 \examples{
 data(telephone)

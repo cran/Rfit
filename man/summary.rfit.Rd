@@ -24,10 +24,9 @@ Provides a summary similar to the traditional least squares fit.
   %...
 %}
 \references{
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust nonparametric statistical methods}, London: Arnold.
-
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
-\author{ John Kloke \email{jdk61@pitt.edu}}
+\author{ John Kloke \email{kloke@biostat.wisc.edu}}
 
 
 % ~Make other sections like Warning with \section{Warning }{....} ~

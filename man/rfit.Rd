@@ -9,19 +9,20 @@ Minimizes Jaeckel's dispersion function to obtain a rank-based solution for line
 \usage{
 rfit(formula, data = list(), ...)
 %rfit.formula(formula, data = list(), ...)
-\method{rfit}{default}(formula, data=list(), yhat0 = suppressWarnings(rq(y ~ x)$fitted.values), scores = wscores, symmetric = FALSE, ...)
+\method{rfit}{default}(formula, data=list(), yhat0 = NULL, scores = wscores, symmetric = FALSE, intercept = TRUE, ...)
 
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{formula}{an object of class formula }
   \item{data}{ an optional data frame}
-  \item{yhat0}{ an n by vector of initial fitted values }
+  \item{yhat0}{ an n by vector of initial fitted values, default is NULL}
 %  \item{x}{ an n by p design matrix }
 %  \item{y}{ an n by 1 response vector }
 %  \item{beta0}{ an initial estimate of the  }
   \item{scores}{ an object of class 'scores'}
   \item{symmetric}{ logical.  If 'FALSE' uses median of residuals as estimate of intercept} 
+  \item{intercept}{use intercept = FALSE when 1 is in the column space of X or for regression through the orgin}
   \item{\dots}{ additional arguments to be passed to fitting routines }
 
 }
@@ -29,6 +30,7 @@ rfit(formula, data = list(), ...)
 Rank-based estimation involves replacing the L2 norm of least squares estimation with a pseudo-norm which is a function of the ranks of the residuals.
 That is, in rank estimation, the usual notion of Euclidean distance is replaced with another measure of distance which is referred to as Jaeckel's (1972) dispersion function.
 Jaeckel's dispersion function depends on a score function and a library of commonly used score functions is included.  e.g. Wilcoxon and sign score functions.
+If an inital fit is not supplied (i.e. yhat0 = NULL) then inital fit is based on an L1 fit via rq.
 
 }
 \value{
@@ -46,7 +48,7 @@ Jaeckel's dispersion function depends on a score function and a library of commo
 \item{call}{Call to the function}
 }
 \references{
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust nonparametric statistical methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 
 Jaeckel, L. A. (1972). Estimating regression coefficients by minimizing the dispersion of residuals. \emph{Annals of Mathematical Statistics}, 43, 1449 - 1458.
 
@@ -54,7 +56,7 @@ Jureckova, J. (1971). Nonparametric estimate of regression coefficients. \emph{A
 
 
 }
-\author{ John Kloke \email{jdk61@pitt.edu}}
+\author{ John Kloke \email{kloke@biostat.wisc.edu}}
 %\note{ ~~further notes~~ 
 %
 % ~Make other sections like Warning with \section{Warning }{....} ~

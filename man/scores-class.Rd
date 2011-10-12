@@ -2,6 +2,9 @@
 \Rdversion{1.1}
 \docType{class}
 \alias{scores-class}
+\alias{scores}
+%\alias{getScores}
+%\alias{getScoresDeriv}
 
 \title{Class "scores"}
 \description{
@@ -15,22 +18,31 @@ Objects can be created by calls of the form \code{new("scores", ...)}.
   \describe{
     \item{\code{phi}:}{Object of class \code{"function"} the score function }
     \item{\code{Dphi}:}{Object of class \code{"function"} the first derivative of the score function }
+    \item{\code{param}:}{Object of class \code{"param"} }
   }
 }
-\section{Methods}{
-No methods defined with class "scores" in the signature.
-}
+%\section{Methods}{
+%\describe{
+%\item{getScores}{\code{signature(object = "scores")}}{
+%  Evaluates the score function
+%}
+%\item{getScoresDeriv}{\code{signature(object = "scores")}}{
+%  Evaluates the derivative of the score function
+%}
+%}
+%}
 \references{
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust Nonparametric Statistical Methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
-\author{ John Kloke \email{jdk61@pitt.edu}}
+\author{ John Kloke \email{kloke@biostat.wisc.edu}}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-%\seealso{
+\seealso{
+\code{\linkS4class{param}}
 %%  ~~objects to See Also as \code{\link{~~fun~~}}, ~~~
 %%  ~~or \code{\linkS4class{CLASSNAME}} for links to other classes ~~~
-%}
+}
 \examples{
 showClass("scores")
 }

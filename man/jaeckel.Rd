@@ -25,7 +25,7 @@ Results of \code{optim} are returned.
 \references{ 
 Cheng, K. S. and Hettmansperger, T. P. (1983), Weighted Least-Squares Rank Regression, \emph{Communications in Statistics, Part A - Theory and Methods}, 12, 1069-1086.
 
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust Nonparametric Statistical Methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 
 Jaeckel, L. A. (1972), Estimating regression coefficients by minimizing the dispersion of residuals. \emph{Annals of Mathematical Statistics}, 43, 1449 - 1458.
 
@@ -34,7 +34,7 @@ Kapenga, J. A., McKean, J. W., and Vidmar, T. J. (1988), \emph{RGLM: Users Manua
 Sievers, J. and Abebe, A. (2004), Rank Estimation of Regression Coefficients Using Iterated Reweighted Least Squares, \emph{Journal of Statistical Computation and Simulation}, 74, 821-831.
 
 }
-\author{ John Kloke \email{jdk61@pitt.edu}}
+\author{ John Kloke \email{kloke@biostat.wisc.edu}}
 
 \seealso{ \code{\link{optim}}, \code{\link{rfit}} }
 \examples{

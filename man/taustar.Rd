@@ -23,8 +23,7 @@ Length-one numeric object containing the estimated scale parameter taustar.
 }
 
 \references{ 
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust Nonparametric Statisti
-cal Methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
 
 \author{ Joseph McKean, John Kloke}

@@ -1,5 +1,5 @@
 \name{taufuncs}
-\alias{hstarready2}
+\alias{hstarreadyscr}
 \alias{hstar}
 \alias{looptau}
 \alias{pairup}
@@ -9,32 +9,30 @@
 These are internal functions used for calculating the scale parameter tau necessary for estimating the standard errors of coefficients for rank-regression.
 }
 \usage{
-hstarready2(ehat,phi,phipr,param=c(0))
+hstarreadyscr(ehat,asc,ascpr)
 hstar(abdord, wtord, const, n, y) 
-looptau(delta, abdord, wtord, const, n, param = c(0))
+looptau(delta, abdord, wtord, const, n)
 pairup(x,type="less") 
 }
 \references{ 
-Hettmansperger, T.P. and McKean, J.W. (1998), \emph{Robust Nonparametric Statistical Methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 
 Koul, H.L., Sievers, G.L., and McKean, J.W. (1987) An esimator of the scale parameter for the rank analysis of linear models under general score functions, \emph{Scandinavian Journal of Statistics}, 14, 131-141.
 }
 \author{ Joseph McKean, John Kloke}
 
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{ehat}{ Full model residals }
-  \item{phi}{ Score function used }
-  \item{phipr}{ Phi Prime }
-  \item{param}{ Joe's param }
-  \item{delta}{ Ask Joe }
-  \item{y}{ Ask Joe }
-  \item{abdord}{ Ask Joe }
-  \item{wtord}{ Ask Joe }
-  \item{const}{ Ask Joe }
-  \item{n}{ Ask Joe }
-  \item{x}{ Ask Joe }
-  \item{type}{ Ask Joe }
+  \item{delta}{Window parameter (proportion) used in the Koul et al. estimator of tau.  Default value is 0.80.   If the ratio of sample size to number of regression parameters (n to p) is less than 5, larger values such as 0.90 to 0.95 are more approporiate.}
+  \item{y}{Argument of function hstar}
+  \item{abdord}{Ordered absolute differences of residuals}
+  \item{wtord}{Standardized (by const) ordered absolute differences of residuals}
+  \item{const}{Range of score function}
+  \item{n}{Sample size}
+  \item{x}{Argument for pairup}
+  \item{type}{Argument for the function pairup}
+  \item{asc}{ scores }
+  \item{ascpr}{ derivative of the scores }
 }
 %\details{
   %~~ If necessary, more details than the description above ~~

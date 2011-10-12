@@ -26,7 +26,7 @@ Salaries of 176 professional baseball players for the 1987 season.
 http://lib.stat.cmu.edu/datasets/baseball.data
 }
 \references{
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust Nonparametric Statistical Methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
 \examples{
 data(bbsalaries)

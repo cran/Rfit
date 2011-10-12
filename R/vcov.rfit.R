@@ -1,18 +1,17 @@
 vcov.rfit <-
-function (object, intercept = TRUE, ...)
+function (object, intercept = NULL, ...)
 #function (fit, intercept = TRUE) 
 {
-	fit<-object
-    if (intercept) {
-        xpxi <- chol2inv(chol(crossprod(fit$xc)))
-        xbar <- apply(fit$x, 2, mean)
-        kn <- fit$taushat^2/length(fit$resid) + fit$tauhat^2 * 
-            t(xbar) %*% xpxi %*% xbar
-        cvec <- -fit$tauhat^2 * t(xbar) %*% xpxi
-        cbind(rbind(kn, t(cvec)), rbind(cvec, fit$tauhat^2 * 
-            xpxi))
-    }
-    else {
-        fit$tauhat^2 * chol2inv(chol(crossprod(fit$xc)))
-    }
+
+#    if( is.null(intercept) ) intercept<-object$intercept
+#	fit<-object
+
+	Q<-qr.Q(object$qrx1)
+	q1<-Q[,1]
+	Q2<-Q[,2:object$qrx1$rank]
+
+	xxpxi<-object$x%*%chol2inv(chol(crossprod(object$x)))
+	A1<-crossprod(q1,xxpxi) ; A2<-crossprod(Q2,xxpxi)
+ 	object$taushat^2*crossprod(A1)+object$tauhat^2*crossprod(A2)
+
 }

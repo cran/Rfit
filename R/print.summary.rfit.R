@@ -7,8 +7,8 @@ function (x, digits = max(5, .Options$digits - 2), ...)
     est <- x$coef
     printCoefmat(x$coefficients, P.value = TRUE, has.Pvalue = TRUE)
     cat("\nMultiple R-squared (Robust):", x$R2, "\n")
-    cat("Wald Test:", round(x$waldstat, digits = digits), "p-value:", 
-        round(x$waldpval, digits = digits), "\n")
+#    cat("Wald Test:", round(x$waldstat, digits = digits), "p-value:", 
+#        round(x$waldpval, digits = digits), "\n")
     cat("Reduction in Dispersion Test:", round(x$dropstat, digits = digits), 
         "p-value:", round(x$droppval, digits = digits), "\n")
     cat("\n")

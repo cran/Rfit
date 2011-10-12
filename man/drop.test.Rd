@@ -29,10 +29,10 @@ Rank-based inference proceedure analogous to the traditional (LS) reduced model 
   %\item{comp2 }{Description of 'comp2'}
 %  ...
 }
-\author{ John Kloke \email{jdk61@pitt.edu}}
+\author{ John Kloke \email{kloke@biostat.wisc.edu}}
 
 \references{ 
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust Nonparametric Statistical Methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
 
 \seealso{ \code{\link{rfit}}}

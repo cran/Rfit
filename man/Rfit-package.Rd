@@ -11,8 +11,8 @@ Rank-based estimation and inference offers a robust alternative to least squares
 \tabular{ll}{
 Package: \tab Rfit\cr
 Type: \tab Package\cr
-Version: \tab 0.08\cr
-Date: \tab 2010-01-11\cr
+Version: \tab 0.14\cr
+Date: \tab 2010-11-23\cr
 License: \tab  GPL (version 2 or later)\cr
 LazyLoad: \tab yes\cr
 }
@@ -22,10 +22,10 @@ LazyLoad: \tab yes\cr
 \author{
 John Kloke, Joesph McKean
 
-Maintainer: John Kloke <jdk61@pitt.edu>
+Maintainer: John Kloke <kloke@biostat.wisc.edu>
 }
 \references{
-Hettmansperger, T.P. and McKean J.W. (1998), \emph{Robust Nonparametric Statistical Methods}, London: Arnold.
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 
 Jaeckel, L. A. (1972). Estimating regression coefficients by minimizing the dispersion of residuals. \emph{Annal
 s of Mathematical Statistics}, 43, 1449 - 1458.
@@ -34,8 +34,6 @@ Jureckova, J. (1971). Nonparametric estimate of regression coefficients. \emph{A
 }, 42, 1328 - 1338.
 
 }
-%~~ Optionally other standard keywords, one per line, from file KEYWORDS in ~~
-%~~ the R documentation directory ~~
 \keyword{nonparametric}
 \keyword{robust}
 \keyword{regression}
@@ -58,12 +56,6 @@ x2<-rnorm(47)
 fitF<-rfit(y~x1+x2)
 fitR<-rfit(y~x1)
 drop.test(fitF,fitR)
-
-
-
-
-
-
 
 
 
