@@ -9,7 +9,8 @@ Minimizes Jaeckel's dispersion function to obtain a rank-based solution for line
 \usage{
 rfit(formula, data = list(), ...)
 %rfit.formula(formula, data = list(), ...)
-\method{rfit}{default}(formula, data=list(), yhat0 = NULL, scores = wscores, symmetric = FALSE, intercept = TRUE, ...)
+\method{rfit}{default}(formula, data=list(), yhat0 = NULL, scores = wscores, symmetric = FALSE, 
+intercept = NULL, TAU = "F0", ...)
 
 }
 %- maybe also 'usage' for other objects documented here.
@@ -22,7 +23,8 @@ rfit(formula, data = list(), ...)
 %  \item{beta0}{ an initial estimate of the  }
   \item{scores}{ an object of class 'scores'}
   \item{symmetric}{ logical.  If 'FALSE' uses median of residuals as estimate of intercept} 
-  \item{intercept}{use intercept = FALSE when 1 is in the column space of X or for regression through the orgin}
+  \item{intercept}{use intercept = FALSE when 1 is in the column space of X}
+  \item{TAU}{version of estimation routine for scale parameter.  F0 for Fortran, R for (slower) R, N for none}
   \item{\dots}{ additional arguments to be passed to fitting routines }
 
 }

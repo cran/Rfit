@@ -1,4 +1,4 @@
-gettau = function(ehat,p,scores=wscores, delta = 0.8, hparm = 2){
+gettau = function(ehat,p=0,scores=wscores, delta = 0.8, hparm = 2){
 
      n = length(ehat)
      asc = getScores(scores, 1:n/(n+1))

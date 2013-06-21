@@ -1,6 +1,10 @@
 oneway.rfit<-function(y,g,scores=wscores,p.adjust='none') {
 
 	ug<-unique(g)
+	if( length(ug) < 3 ) {
+		warning('requires K > 2')
+		return()
+	}
 	K<-length(ug)
 	nvec<-tapply(!is.na(y),g,sum)
 
