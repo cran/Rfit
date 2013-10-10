@@ -16,8 +16,7 @@ These functions print the output in a user-friendly manner using the internal R 
 \method{print}{drop.test}(x, digits = max(5, .Options$digits - 2), ...)
 \method{print}{oneway.rfit}(x, digits = max(5, .Options$digits - 2), ...)
 \method{print}{summary.oneway.rfit}(x, digits = max(5, .Options$digits - 2), ...)
-\method{print}{raov}(x,...)
-
+\method{print}{raov}(x, digits = max(5, .Options$digits - 2), ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

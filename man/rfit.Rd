@@ -9,21 +9,18 @@ Minimizes Jaeckel's dispersion function to obtain a rank-based solution for line
 \usage{
 rfit(formula, data = list(), ...)
 %rfit.formula(formula, data = list(), ...)
-\method{rfit}{default}(formula, data=list(), yhat0 = NULL, scores = wscores, symmetric = FALSE, 
-intercept = NULL, TAU = "F0", ...)
+\method{rfit}{default}(formula, data, subset, yhat0 = NULL, scores = wscores, 
+symmetric = FALSE, TAU = "F0", ...)
 
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{formula}{an object of class formula }
   \item{data}{ an optional data frame}
+  \item{subset}{ an optional argument specifying the subset of observations to be used}
   \item{yhat0}{ an n by vector of initial fitted values, default is NULL}
-%  \item{x}{ an n by p design matrix }
-%  \item{y}{ an n by 1 response vector }
-%  \item{beta0}{ an initial estimate of the  }
   \item{scores}{ an object of class 'scores'}
   \item{symmetric}{ logical.  If 'FALSE' uses median of residuals as estimate of intercept} 
-  \item{intercept}{use intercept = FALSE when 1 is in the column space of X}
   \item{TAU}{version of estimation routine for scale parameter.  F0 for Fortran, R for (slower) R, N for none}
   \item{\dots}{ additional arguments to be passed to fitting routines }
 
@@ -55,8 +52,6 @@ Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statisti
 Jaeckel, L. A. (1972). Estimating regression coefficients by minimizing the dispersion of residuals. \emph{Annals of Mathematical Statistics}, 43, 1449 - 1458.
 
 Jureckova, J. (1971). Nonparametric estimate of regression coefficients. \emph{Annals of Mathematical Statistics}, 42, 1328 - 1338.
-
-
 }
 \author{ John Kloke \email{kloke@biostat.wisc.edu}}
 %\note{ ~~further notes~~ 

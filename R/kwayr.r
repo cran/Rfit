@@ -25,7 +25,7 @@ kwayr = function(levs,data) {
     listtests = subsets(nf)
     p = length(xfull[1,])
      xuse = xfull
-     fitF = rfit(y~xfull,intercept=FALSE)
+     fitF = rfit(y~xfull-1)
      iflagq = 0
 
     drf = disp(fitF$betahat, xuse, fitF$y, fitF$scores)
@@ -42,7 +42,7 @@ kwayr = function(levs,data) {
 #      see = cbind(rep(i,q),hmat)
 #      write(t(see),ncol=13,append=T,file="allh.dat")
       xred = redmod(xfull,hmat)
-      fitr = rfit(y~xred,intercept=FALSE)
+      fitr = rfit(y~xred-1)
       drr = disp(fitr$betahat, xred, fitr$y, fitr$scores)
       rd = drr - drf
       ft = (rd/q)/(fitF$tauhat/2)

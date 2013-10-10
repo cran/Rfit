@@ -11,8 +11,8 @@ Rank-based estimation and inference offers a robust alternative to least squares
 \tabular{ll}{
 Package: \tab Rfit\cr
 Type: \tab Package\cr
-Version: \tab 0.14\cr
-Date: \tab 2010-11-23\cr
+Version: \tab 0.18\cr
+Date: \tab 2014-06-25\cr
 License: \tab  GPL (version 2 or later)\cr
 LazyLoad: \tab yes\cr
 }

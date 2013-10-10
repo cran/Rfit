@@ -9,7 +9,7 @@
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{model}{ an object of class rfit }
-  \item{\dots}{ additional arguments to be passed to fitting routines }
+  \item{\dots}{ additional arguments. currently not used.}
 }
 %\details{
   %~~ If necessary, more details than the description above ~~

@@ -1,11 +1,11 @@
 print.raov <-
-#function (x, digits = max(5, .Options$digits - 2), ...) 
-function (x,...) 
+function (x, digits = max(5, .Options$digits - 2), ...) 
+#function (x,...) 
 {
 #    cat("Call:\n")
 #    print(x$call)
 	cat("\nRobust ANOVA Table\n")
-	Table<-x$tab
+	Table<-round(x$tab,digits)
 #    print(format(Table,digit=digits), ...)
     print(Table,...)
 }
