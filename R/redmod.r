@@ -14,10 +14,11 @@ redmod<-function(xmat,amat){
   q<-length(amat[,1])
   p<-length(xmat[1,])
   temp<-qr(t(amat))
-  if(temp$rank != q)
+  if(temp$rank != q) {
     stop("redmod:  The hypothesis matrix is not full row rank.")
-  else
-    {zed<-qr.qty(temp,t(xmat))
-    redmod<-rbind(zed[(q+1):p,])}
+  } else {
+    zed<-qr.qty(temp,t(xmat))
+    redmod<-rbind(zed[(q+1):p,])
+  }
   t(redmod)
 }

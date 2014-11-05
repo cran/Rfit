@@ -1,4 +1,4 @@
-looptau = function(delta,abdord,wtord,const,n){
+looptau = function(delta,abdord,wtord,const,n) {
 
       m= length(abdord)
       icmax = 0

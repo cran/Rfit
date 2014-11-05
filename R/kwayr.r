@@ -1,6 +1,36 @@
 #kwayr = function(levs,data,ci=F,ciconf=.95,cimat=c(0)){
 
 # jk 06-19-2011: removed confidence interval 
+
+
+#' Internal Functions for K-Way analysis of variance
+#' 
+#' These are internal functions used to construct the robust anova table.
+#' 
+#' 
+#' @aliases kwayr cellx khmat pasteColsRfit redmod subsets
+#' @param levs vector of levels corresponding to each of the factors
+#' @param data data matrix in the form y, factor 1,..., factor k
+#' @param X n x k matrix where the columns represent the levels of the k
+#' factors.
+#' @param levsind Ask Joe
+#' @param permh Ask Joe
+#' @param x n x k matrix where the columns represent the levels of the k
+#' factors.
+#' @param xmat n x p full model design matrix
+#' @param amat Ask Joe
+#' @param k Ask Joe
+#' @param sep Seperator used in pasteColsRfit
+#' @note Renamed pasteCols of library plotrix written by Jim Lemon et. al. June
+#' 2011 under GPL 2
+#' @author Joseph McKean, John Kloke
+#' @seealso \code{\link{raov}}
+#' @references Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust
+#' Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
+#' 
+#' Hocking, R. R. (1985), \emph{The Analysis of Linear Models}, Monterey,
+#' California: Brooks/Cole.
+#' @export kwayr
 kwayr = function(levs,data) {
 #
 #   Input:
