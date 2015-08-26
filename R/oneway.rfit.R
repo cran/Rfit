@@ -51,9 +51,13 @@ oneway.rfit<-function(y,g,scores=Rfit::wscores,p.adjust='none') {
   se<-tauhat*sqrt(1/nvec[ind1]+1/nvec[ind2])
 
   ### p-values ###
-  pval<-p.adjust(pt(abs(est/se),length(y)-(kp+1)),method=p.adjust)
-  pp<-matrix(nrow=K,ncol=K-1,dimnames=list(ug,ug[2:K]))
-  pp[lower.tri(pp)]<-pval
+  pval<-p.adjust(2*pt(abs(est/se),length(y)-(kp+1),lower.tail=FALSE),
+    method=p.adjust)
+  # jk 20141119 - fix labels in p-value matrix 
+  # pp<-matrix(nrow=K,ncol=K-1,dimnames=list(ug,ug[2:K]))
+  # pp[lower.tri(pp)]<-pval
+  pp<-matrix(nrow = K-1,ncol = K - 1, dimnames = list(ug[2:K],ug[1:(K-1)]))
+  pp[lower.tri(pp,diag=TRUE)] <- pval
   DNAME <- paste(deparse(substitute(y)), "and", deparse(substitute(g)))
   ans<-list(method="Rfit",data.name=DNAME,p.value=pp,p.adjust.method=p.adjust)
   class(ans)<-"pairwise.htest"

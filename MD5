@@ -1,10 +1,10 @@
-8bdd6d58a552938f5e2d95a250116f96 *DESCRIPTION
-a0d9c10d1bf50a3971db6d3012464888 *NAMESPACE
+fbdbefeb5a1ec1432c45288ed124e436 *DESCRIPTION
+c0cb7cc1490194f8eb0b2ffa1430b3e2 *NAMESPACE
 ec1938b7b19ed2c7e9eb480185789929 *R/Rfit-package.R
 3a6a363083be09389dfba7fc797f5ca6 *R/cellx.r
 14f61b4039bfe6cfde0931f0bac64d5b *R/confintadjust.R
 f913372fe38207f8999824c858fdfd0c *R/disp.R
-eee916613a13ea1da32b1830a9084349 *R/drop.test.R
+c707b27db7a143a175c8a2de54364bef *R/drop.test.R
 6625289537fe7eae10ba6e368501b1ae *R/gettau.R
 ee112e1ecd942b7b1474f6f865a3f217 *R/gettauF0.R
 d4e1a135e0d2f24c809add448ef81acf *R/grad.R
@@ -14,7 +14,7 @@ fe4a047295b6c9d92ab1602e7da47955 *R/jaeckel.R
 584ecec241f1bd1ad60e757f9be50be9 *R/khmat.r
 af17b421a5ce17358281c0758d996ee4 *R/kwayr.r
 d4c9feb81431770cff7ddbc708db0dfc *R/looptau.r
-dd99154546c378574eb20d9c222bfdf9 *R/oneway.rfit.R
+406bdefc01b9be6ec210d88a0b65e27c *R/oneway.rfit.R
 ed7589956e3877ce595075ace2a63a3a *R/pairup.R
 fb0494a58acc77c5de8fd5ace2088be1 *R/pasteColsRfit.R
 fa7cbee2ec8072b5e79ebf8b122f42f0 *R/print.drop.test.R
@@ -26,8 +26,8 @@ dc5c96d9ddd11fcddf284f1dde818811 *R/print.rfit.R
 22085d2d85a5a56639ad365dcacecd59 *R/raov.R
 fc48df003b909221c5b7a5a11243eb3c *R/redmod.r
 9d1306a6708976fe6d3c1da71aaf2f79 *R/rfit.R
-dd66634662076b7c211a5956af82e72a *R/rfit.default.R
-c0ab37dbfa8c8d4bf100ae96a07184ba *R/rstudent.rfit.R
+65f7b99e640c1f0600807742007b15df *R/rfit.default.R
+bebd08bf1f9e4ee2c49b0363117ef697 *R/rstudent.rfit.R
 846d7a6942eec8655d809ec4fb943178 *R/signedrank.R
 091c26ea95cdbec1154a032cbaca6f43 *R/subsets.r
 e5743c4333e7c416de255c9f170986b1 *R/summary.oneway.rfit.R
@@ -91,3 +91,5 @@ bc1efa7e58e39a4cd8f086321ac9b877 *man/taustar.Rd
 fa7455ec6c8d997c983099e74dd39972 *src/hubcor.f
 ccbd508934a091d567304d7ba46f0630 *src/lin3.f
 ef325d965a9fa1026484505c09abd11a *src/nscale.f
+bdcf521c0d3f7b3522104165ae38aba0 *tests/testthat.R
+5ad5a4ad03e50b5e85fef8b8be925426 *tests/testthat/test-convergence.r

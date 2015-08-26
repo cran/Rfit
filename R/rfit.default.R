@@ -11,6 +11,7 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
 #
 
   x <- model.matrix(attr(mf, "terms"), data = mf)
+  if( abs(max(x) - min(x)) < .Machine$double.eps ^ 0.5 ) stop("x cannot only contain an intercept")
   x1 <- as.matrix(x[,colnames(x)!='(Intercept)'])
   x1 <- as.matrix(cbind(rep(1,nrow(x1)),x1))
 
@@ -26,11 +27,27 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
   } else {
     fit0 <- lsfit(xq, yhat0, intercept = FALSE)
   }
-  ord<-order(fit0$resid)
+#  ord<-order(fit0$resid)
 
-  fit <- jaeckel(as.matrix(xq[ord,]), y[ord], fit0$coef, scores=scores, ...)
-  if( fit$convergence != 0 ) fit <- jaeckel(as.matrix(xq[ord,]), y[ord], jitter(fit$coef), scores=scores, ...)
-  if( fit$convergence != 0 ) warning("rfit: Convergence status not zero in jaeckel")
+## 20141211: set initial fit to null model if it has lower dispersion
+  betahat0 <- fit0$coef
+  if( disp(betahat0, xq, y, scores) > disp(rep(0,length(betahat0)), xq, y, scores) ) {
+    betahat0 <- rep(0, length(betahat0) )
+  }
+  ord <- order(y - xq%*%betahat0)
+##
+
+  fit <- jaeckel(as.matrix(xq[ord,]), y[ord], betahat0, scores=scores, ...)
+  if( fit$convergence != 0 ) {
+    fit2 <- jaeckel(as.matrix(xq[ord,]), y[ord], jitter(fit$par), scores=scores, ...)
+    if( fit$convergence != 0 ) {
+      warning("rfit: Convergence status not zero in jaeckel")
+      if( fit2$value < fit$value ) fit <- fit2
+    } else {
+      fit <- fit2
+    }
+    rm(fit2)
+  }
   rm(ord)
   betahat <- fit$par
 
