@@ -5,8 +5,7 @@ exportPattern(".")
 
 # Import all packages listed as Imports or Depends
 import(
-  methods,
-  quantreg
+  methods
 )
 
 importFrom("stats","rstudent")
@@ -14,6 +13,7 @@ importFrom("stats", "fitted.values", "hat", "lsfit", "mad", "median",
      "model.frame", "model.matrix", "model.response", "optim",
      "pf", "printCoefmat", "pt", "qnorm", "qt", "qtukey",
      "residuals", "sd", "vcov")
+importFrom("stats", "coef", "lm")
 
 S3method(print,drop.test)
 S3method(print,oneway.rfit) 
