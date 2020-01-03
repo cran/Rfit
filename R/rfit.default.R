@@ -1,5 +1,5 @@
 rfit.default <- function (formula, data, subset, yhat0 = NULL, 
-    scores = Rfit::wscores, symmetric = FALSE, TAU = 'F0',  ...) {
+    scores = Rfit::wscores, symmetric = FALSE, TAU = 'F0', ...) {
 
 # Below is taken from quantreg (under GPL) #
   call<-match.call()
@@ -22,23 +22,22 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
   q1<-Q[,1]
   xq<-as.matrix(Q[,2:qrx$rank])
 
-  if( is.null(yhat0) ) {
-    fit0<-suppressWarnings(lm(y~xq-1))
-  } else {
-    fit0 <- lsfit(xq, yhat0, intercept = FALSE)
-  }
-#  ord<-order(fit0$resid)
+  if( is.null(yhat0) ) yhat0 <- y
+#  betahat0 <- lsfit(xq, yhat0, intercept = FALSE)$coef
+#  betahat0 <- .lm.fit(xq, yhat0)$coef
+#  betahat0 <- qr.solve(xq,yhat0)
+  betahat0 <- drop(crossprod(xq,yhat0))
 
 ## 20141211: set initial fit to null model if it has lower dispersion
-  betahat0 <- fit0$coef
   if( disp(betahat0, xq, y, scores) > disp(rep(0,length(betahat0)), xq, y, scores) ) {
     betahat0 <- rep(0, length(betahat0) )
   }
-  ord <- order(y - xq%*%betahat0)
 ##
+  ord <- order(y - xq%*%betahat0)
 
   fit <- jaeckel(as.matrix(xq[ord,]), y[ord], betahat0, scores=scores, ...)
   if( fit$convergence != 0 ) {
+    ord <- order(y - xq%*%fit$par)
     fit2 <- jaeckel(as.matrix(xq[ord,]), y[ord], jitter(fit$par), scores=scores, ...)
     if( fit$convergence != 0 ) {
       warning("rfit: Convergence status not zero in jaeckel")
@@ -58,6 +57,17 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
   yhat <- yhat+alphahat
 
   bhat <- lsfit(x,yhat,intercept=FALSE)$coef
+#  bhat <- .lm.fit(x,yhat)$coef
+
+# check null model fit 
+  alphahat0 <- ifelse(symmetric, signedrank(y), median(y))
+  bhat0 <- c(alphahat0,rep(0,length(bhat)-1))
+
+  if( disp(bhat, x, y, scores) > disp(bhat0, x, y, scores) ) {
+    bhat <- bhat0
+    ehat <- y - alphahat0
+    yhat <- rep(alphahat0,length(y))
+  }
 
   r.gettau <- switch(TAU,
     F0 = gettauF0,
@@ -75,7 +85,7 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
   res <- list( coefficients = bhat, residuals = ehat, fitted.values = yhat, 
     scores = scores, x = x, y = y, tauhat = tauhat, qrx1=qrx,
     taushat = taushat, symmetric = symmetric, betahat = bhat,disp=fit$value,
-    D1 = disp(bhat,x,y,scores),D0 = disp(rep(0,length(bhat)),x,y,scores)
+    D1 = disp(bhat,x,y,scores),D0 = disp(bhat0,x,y,scores)
   )
   res$call <- call
   class(res) <- list("rfit")

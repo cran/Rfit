@@ -1,7 +1,7 @@
 #' Drop (Reduction) in Dispersion Test
 #' 
 #' Given two full model fits, this function performs a reduction in disperion
-#' test.
+#' test.  Given one fit, returns the test comparing to the null model.
 #' 
 #' Rank-based inference proceedure analogous to the traditional (LS) reduced
 #' model test.
@@ -15,7 +15,7 @@
 #' the full model residuals)} \item{df1}{numerator degrees of freedom}
 #' \item{df2}{denominator degrees of freedom} %\item{comp1 }{Description of
 #' 'comp1'} %\item{comp2 }{Description of 'comp2'} % ...
-#' @author John Kloke \email{kloke@@biostat.wisc.edu}
+#' @author John Kloke 
 #' @seealso \code{\link{rfit}}
 #' @references Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust
 #' Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
@@ -29,7 +29,9 @@
 #' drop.test(fitF,fitR)
 #' 
 #' @export drop.test
-drop.test <- function (fitF, fitR = NULL) {
+drop.test <- function (fitF, fitR = NULL){
+
+  EPS<-.Machine$double.eps*100  # abs(RD) smaller than this considered 0
 
   pp1 <- fitF$qrx1$rank
 
@@ -46,12 +48,15 @@ drop.test <- function (fitF, fitR = NULL) {
     df1 <- length(fitF$betahat) - length(fitR$betahat)
   }
 
+  if( abs(rd) < EPS ) rd <- 0
+
   if( rd < 0 ) stop( "drop.test: negative reduction in dispersion found\n",
 	"try starting full model at reduced model\n",
 	"see help(drop.test) for more information" )
 
   df2 <- length(fitF$y) - pp1
   test <- (rd/df1)/(fitF$tauhat/2)
+#  if( abs(test) < EPS ) test <- 0
   pval <- 1 - pf(test, df1, df2)
   ans <- list(F = test, p.value = pval, RD = rd, tauhat = fitF$tauhat, 
     df1 = df1, df2 = df2)

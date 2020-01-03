@@ -28,8 +28,8 @@ scores = Rfit::wscores, symmetric = FALSE, TAU = "F0", ...)
 \details{
 Rank-based estimation involves replacing the L2 norm of least squares estimation with a pseudo-norm which is a function of the ranks of the residuals.
 That is, in rank estimation, the usual notion of Euclidean distance is replaced with another measure of distance which is referred to as Jaeckel's (1972) dispersion function.
-Jaeckel's dispersion function depends on a score function and a library of commonly used score functions is included.  e.g. Wilcoxon and sign score functions.
-If an inital fit is not supplied (i.e. yhat0 = NULL) then inital fit is based on an LS fit via \code{lm}.
+Jaeckel's dispersion function depends on a score function and a library of commonly used score functions is included.  e.g. linear (Wilcoxon) and normal (Gaussian) scores.
+If an inital fit is not supplied (i.e. yhat0 = NULL) then inital fit is based on a LS fit.
 
 }
 \value{
@@ -53,15 +53,11 @@ Jaeckel, L. A. (1972). Estimating regression coefficients by minimizing the disp
 
 Jureckova, J. (1971). Nonparametric estimate of regression coefficients. \emph{Annals of Mathematical Statistics}, 42, 1328 - 1338.
 }
-\author{ John Kloke \email{kloke@biostat.wisc.edu}}
-%\note{ ~~further notes~~ 
-%
-% ~Make other sections like Warning with \section{Warning }{....} ~
-%}
-%\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
+\author{ John Kloke, Joesph McKean }
 \seealso{
-%~~objects to See Also as \code{\link{help}}, ~~~
 \code{\link{summary.rfit}}
+\code{\link{drop.test}}
+\code{\link{rstudent.rfit}}
 }
 
 \examples{
@@ -69,10 +65,13 @@ data(baseball)
 data(wscores)
 fit<-rfit(weight~height,data=baseball)
 summary(fit)
+
+### set the starting value
+x1 <- runif(47); x2 <- runif(47); y <- 1 + 0.5*x1 + rnorm(47)
+# based on a fit to a sub-model
+rfit(y~x1+x2,yhat0=fitted.values(rfit(y~x1)))
 }
 
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{nonparametric}
 \keyword{robust}
 \keyword{regression}

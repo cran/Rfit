@@ -1,9 +1,9 @@
 \name{grad}
 \alias{grad}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ Calculate the Gradiant of Jaekel's Dispersion Function }
+\title{ Calculate the Gradiant of Jaeckel's Dispersion Function }
 \description{
- Calculate the Gradiant of Jaekel's Dispersion Function 
+ Calculate the Gradiant of Jaeckel's Dispersion Function 
 }
 \usage{
 grad(x, y, beta, scores)
@@ -28,17 +28,12 @@ Jaeckel, L. A. (1972). Estimating regression coefficients by minimizing the disp
 
 Jureckova, J. (1971). Nonparametric estimate of regression coefficients. \emph{Annals of Mathematical Statistics}, 42, 1328 - 1338.
 }
-\author{ John Kloke \email{kloke@biostat.wisc.edu}}
+\author{ John Kloke }
 
-%\note{
-%%  ~~further notes~~
-%}
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-%\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-%}
+\seealso{
+\code{\link{disp}}
+}
 \examples{
 ## The function is currently defined as
 function (x, y, beta, scores) 
@@ -49,7 +44,3 @@ function (x, y, beta, scores)
     -t(x) \%*\% scores@phi(r)
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-%\keyword{ ~kwd1 }
-%\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
